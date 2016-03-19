@@ -6,8 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var login = require('./routes/login');
+var users = require('./routes/users');
 var servers = require('./routes/servers');
+var validator = require('express-validator');
 
 
 var app = express();
@@ -18,6 +19,7 @@ var app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(validator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,7 +47,7 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 app.use('/servers', servers);
-app.use('/login', login);
+app.use('/users', users);
 
 
 
