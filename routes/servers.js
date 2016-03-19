@@ -12,7 +12,7 @@ router.get('/id/:serverId', function(req, res, next) {
 
 
 /* GET list */
-router.get('/list', function(req, res, next) {
+router.get('/', function(req, res, next) {
     servers.all(function(error, results) {
         res.json(results);
     });

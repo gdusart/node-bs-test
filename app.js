@@ -6,7 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var login = require('./routes/login');
 var servers = require('./routes/servers');
+
 
 var app = express();
 
@@ -43,7 +45,7 @@ app.use(function (req, res, next) {
 
 app.use('/', index);
 app.use('/servers', servers);
-
+app.use('/login', login);
 
 
 

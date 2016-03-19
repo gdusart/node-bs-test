@@ -1,4 +1,5 @@
 var dbExport = require('../db')
+var debug = require('debug')('crud')
 
 var db = dbExport.get();
 
@@ -15,7 +16,7 @@ exports.all = function(cb) {
 };
 
 exports.delete = function(id, cb) {
-    db.get('server').remove({_id : id}, function(err) {
+    db.get('servers').remove({_id : id}, function(err) {
          cb(err);
     });
 }
