@@ -6,7 +6,7 @@ var credentials = require('../models/credentials');
 /* GET: login */
 router.post('/login', function(req, res, next) {
     //TODO: hash password
-    credentials.findByMailAndPass(req.query.email, req.query.password, function(err, doc) {
+    credentials.findByMailAndPass(req.body.email, req.body.password, function(err, doc) {
         if (err) {
             next(err);
         }
@@ -19,6 +19,7 @@ router.post('/login', function(req, res, next) {
         }
     })
 });
+
 
 /* POST: register */
 router.post('/register', function(req, res, next) {
